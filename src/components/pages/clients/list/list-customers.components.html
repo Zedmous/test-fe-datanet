@@ -18,7 +18,7 @@
         <input
           class="form-control me-2"
           type="search"
-          placeholder="buscar clientes"
+          placeholder="buscar customers"
           aria-label="Search"
         />
         <button class="btn btn-dark" type="button">
@@ -27,16 +27,10 @@
       </form>
     </div>
     <div>
-      <!----
-      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCliente">
-        Agregar Cliente
-      </button>
-      <!---->
-      <button class="btn btn-dark" @click="abrirModal(nuevoCliente,'r')">
-        Agregar Cliente</button
-      ><!---->
-      <!-- Aquí va tu lista de clientes -->
-      <FormCliente ref="modalCliente" @cliente-agregado="agregarCliente" />
+      <button class="btn btn-dark" @click="abrirModal(nuevoCustomer,'r')">
+        Agregar Customer</button
+      >
+      <FormCustomer ref="modalCustomer" @customer-agregado="agregarCustomer" />
     </div>
   </div>
 </nav>
@@ -45,23 +39,25 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
-      <th scope="col">Teléfono</th>
-      <th scope="col">Dirección</th>
+      <th class="text-center" scope="col">Nombre</th>
+      <th class="text-center" scope="col">Identification</th>
+      <th class="text-center" scope="col">Email</th>
+      <th class="text-center" scope="col">Teléfono</th>
+      <th class="text-center" scope="col">Dirección</th>
       <th class="text-center" scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody :key="updateKey">
-    <tr v-for="(cliente, index) in clientes" :key="cliente.id">
+    <tr v-for="(customer, index) in customers" :key="customer.id">
       <th scope="row">{{ index+1 }}</th>
-      <td>{{ cliente.name }}</td>
-      <td>{{ cliente.email }}</td>
-      <td>{{ cliente.telephone }}</td>
-      <td>{{ cliente.address }}</td>
+      <td class="text-center">{{ customer.name }}</td>
+      <td class="text-center">{{ customer.identification }}</td>
+      <td class="text-center">{{ customer.email }}</td>
+      <td class="text-center">{{ customer.telephone }}</td>
+      <td class="text-center">{{ customer.address }}</td>
       <td class="text-center">
-        <i class="bi bi-pencil-square" @click="abrirModal(cliente,'u')"></i>
-        <i class="bi bi-trash" @click="eliminarCliente(cliente,index)"></i>
+        <i class="bi bi-pencil-square" @click="abrirModal(customer,'u')"></i>
+        <i class="bi bi-trash" @click="eliminarCustomer(customer,index)"></i>
       </td>
     </tr>
   </tbody>

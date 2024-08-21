@@ -4,8 +4,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import * as bootstrap from 'bootstrap';
-import { SaleInterface } from '@/components/core/interfaces';
 import { SaleService } from '@/components/core/services';
+import { SaleInterface } from '@/components/core/interfaces';
 const saleService = new SaleService();
 let sale:SaleInterface|any={};
 export default defineComponent({
@@ -29,7 +29,7 @@ export default defineComponent({
       }
       
       // Cerrar el modal después de guardar
-      const modal = document.getElementById('modalSaleo');
+      const modal = document.getElementById('modalSale');
       if (modal) {
         const bsModal = bootstrap.Modal.getInstance(modal);
         if (bsModal) {
@@ -40,7 +40,7 @@ export default defineComponent({
     abrirModal(sale:SaleInterface,op:string) {
       this.sale = { ...sale }; // Asignar los datos del sale al modal
       this.op=op;
-      const modal = new bootstrap.Modal(document.getElementById('modalSaleo'));
+      const modal = new bootstrap.Modal(document.getElementById('modalSale'));
       modal.show(); // Mostrar el modal
     }
   }

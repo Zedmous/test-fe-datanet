@@ -1,4 +1,4 @@
-<template src="./form-clients.components.html">
+<template src="./form-customers.components.html">
 </template>
 
 <script lang="ts">
@@ -12,23 +12,23 @@ export default defineComponent({
   data() {
     
     return {
-      cliente:customer,
+      customer:customer,
       op:""
     };
   },
   methods: {
     async guardar(){
-      // Lógica para guardar o actualizar el cliente
+      // Lógica para guardar o actualizar el customer
       if(this.op=="r"){
-        let { data, message, status } = await customerService.createCustomer(this.cliente);
-        this.$emit('cliente-agregado', data.customer,"r");
+        let { data, message, status } = await customerService.createCustomer(this.customer);
+        this.$emit('customer-agregado', data.customer,"r");
       }
       if(this.op=="u"){
-        let { data, message, status } = await customerService.updateCustomer(this.cliente.id,this.cliente);
-        this.$emit('cliente-agregado', data.customer,"u");
+        let { data, message, status } = await customerService.updateCustomer(this.customer.id,this.customer);
+        this.$emit('customer-agregado', data.customer,"u");
       }
       // Cerrar el modal después de guardar
-      const modal = document.getElementById('modalCliente');
+      const modal = document.getElementById('modalCustomer');
       if (modal) {
         const bsModal = bootstrap.Modal.getInstance(modal);
         if (bsModal) {
@@ -36,10 +36,10 @@ export default defineComponent({
         }
       }
     },
-    abrirModal(cliente:CustomerInterface,op:string) {
-      this.cliente = { ...cliente }; // Asignar los datos del cliente al modal
+    abrirModal(customer:CustomerInterface,op:string) {
+      this.customer = { ...customer }; // Asignar los datos del customer al modal
       this.op=op;
-      const modal = new bootstrap.Modal(document.getElementById('modalCliente'));
+      const modal = new bootstrap.Modal(document.getElementById('modalCustomer'));
       modal.show(); // Mostrar el modal
     }
   }

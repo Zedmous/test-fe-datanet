@@ -40,16 +40,16 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Porcentaje entre 0 y 1</th>
+      <th class="text-center" scope="col">Nombre</th>
+      <th class="text-center" scope="col">Porcentaje</th>
       <th class="text-center" scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody :key="updateKey">
     <tr v-for="(tax, index) in taxes" :key="tax.id">
       <th scope="row">{{ index+1 }}</th>
-      <td>{{ tax.name }}</td>
-      <td>{{ tax.percentage }}</td>
+      <td class="text-center">{{ tax.name }}</td>
+      <td class="text-center">{{ tax.percentage*100 }}%</td>
       <td class="text-center">
         <i class="bi bi-pencil-square" @click="abrirModal(tax,'u')"></i>
         <i class="bi bi-trash" @click="eliminarTax(tax,index)"></i>

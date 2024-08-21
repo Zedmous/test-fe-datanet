@@ -18,7 +18,7 @@
         <input
           class="form-control me-2"
           type="search"
-          placeholder="buscar sales"
+          placeholder="buscar impuestos"
           aria-label="Search"
         />
         <button class="btn btn-dark" type="button">
@@ -27,11 +27,10 @@
       </form>
     </div>
     <div>
-      <button class="btn btn-dark" @click="abrirModal(nuevosale,'r')">
-        Agregar sale</button
+      <button class="btn btn-dark" @click="abrirModal(newSale,'r')">
+        Agregar Impuesto</button
       >
-      <!-- Aquí va tu lista de sales -->
-      <Formsale ref="modalsale" @sale-agregado="agregarsale" />
+      <FormSale ref="modalSale" @sale-agregado="agregarSale" />
     </div>
   </div>
 </nav>
@@ -40,23 +39,17 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Cliente</th>
-      <th scope="col">Descuento</th>
-      <th scope="col">Impuesto</th>
-      <th scope="col">Existencia Minima</th>
+      <th scope="col">Nombre</th>
       <th class="text-center" scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody :key="updateKey">
     <tr v-for="(sale, index) in sales" :key="sale.id">
       <th scope="row">{{ index+1 }}</th>
-      <td>{{ sale.customer_id }}</td>
-      <td>{{ sale.discount*100 }}%</td>
-      <td>{{ sale.tax_id }}</td>
-      <td>{{ sale.minimum_stock }}</td>
+      <td>{{ sale.name }}</td>
       <td class="text-center">
         <i class="bi bi-pencil-square" @click="abrirModal(sale,'u')"></i>
-        <i class="bi bi-trash" @click="eliminarsale(sale,index)"></i>
+        <i class="bi bi-trash" @click="eliminarSale(sale,index)"></i>
       </td>
     </tr>
   </tbody>

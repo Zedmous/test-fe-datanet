@@ -40,20 +40,20 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Existencia</th>
-      <th scope="col">Existencia Minima</th>
+      <th class="text-center" scope="col">Nombre</th>
+      <th class="text-center" scope="col">Precio</th>
+      <th class="text-center" scope="col">Existencia</th>
+      <th class="text-center" scope="col">Existencia Minima</th>
       <th class="text-center" scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody :key="updateKey">
     <tr v-for="(producto, index) in productos" :key="producto.id">
       <th scope="row">{{ index+1 }}</th>
-      <td>{{ producto.name }}</td>
-      <td>{{ producto.price }}</td>
-      <td>{{ producto.quantity }}</td>
-      <td>{{ producto.minimum_stock }}</td>
+      <td class="text-center">{{ producto.name }}</td>
+      <td class="text-center">{{ producto.price }}$</td>
+      <td class="text-center">{{ producto.quantity }}</td>
+      <td class="text-center">{{ producto.minimum_stock }}</td>
       <td class="text-center">
         <i class="bi bi-pencil-square" @click="abrirModal(producto,'u')"></i>
         <i class="bi bi-trash" @click="eliminarProducto(producto,index)"></i>

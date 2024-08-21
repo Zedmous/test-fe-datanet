@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Products from '../components/pages/products/list/list-products.components.vue';
-import Clients from '../components/pages/clients/list/list-clients.components.vue';
+import Clients from '../components/pages/clients/list/list-customers.components.vue';
 import Sales from '../components/pages/sales/list/list-sales.components.vue';
 import Taxes from '../components/pages/taxes/list/list-taxes.components.vue';
 
