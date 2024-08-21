@@ -1,0 +1,64 @@
+<div
+  class="modal fade"
+  id="modalCliente"
+  tabindex="-1"
+  aria-labelledby="modalClienteLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalClienteLabel">
+          Registrar/Actualizar Cliente
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Aquí puedes incluir tu formulario para registrar o actualizar clientes -->
+        <form @submit.prevent="guardar">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              v-model="cliente.name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              v-model="cliente.email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="telephone" class="form-label">Teléfono</label>
+            <input
+              type="text"
+              class="form-control"
+              id="telephone"
+              v-model="cliente.telephone"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="address" rows="3" v-model="cliente.address"></textarea>
+          </div>
+          <!-- Agrega más campos según sea necesario -->
+          <button type="submit" class="btn btn-dark">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

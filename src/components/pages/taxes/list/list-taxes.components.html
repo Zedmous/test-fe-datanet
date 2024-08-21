@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Buscar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <hr />
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="buscar impuestos"
+          aria-label="Search"
+        />
+        <button class="btn btn-dark" type="button">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
+    <div>
+      <button class="btn btn-dark" @click="abrirModal(newTax,'r')">
+        Agregar Impuesto</button
+      >
+      <!-- Aquí va tu lista de taxes -->
+      <FormTax ref="modalTax" @tax-agregado="agregarTax" />
+    </div>
+  </div>
+</nav>
+
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Porcentaje entre 0 y 1</th>
+      <th class="text-center" scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody :key="updateKey">
+    <tr v-for="(tax, index) in taxes" :key="tax.id">
+      <th scope="row">{{ index+1 }}</th>
+      <td>{{ tax.name }}</td>
+      <td>{{ tax.percentage }}</td>
+      <td class="text-center">
+        <i class="bi bi-pencil-square" @click="abrirModal(tax,'u')"></i>
+        <i class="bi bi-trash" @click="eliminarTax(tax,index)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

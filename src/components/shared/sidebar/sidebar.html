@@ -1,0 +1,11 @@
+<aside class="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li class="nav-item" v-for="item in menuItems" :key="item.text">
+      <router-link :to="item.link" class="sidebar-link">
+        {{ item.text }}
+      </router-link>
+    </li>
+  </ul>
+</aside>
+
